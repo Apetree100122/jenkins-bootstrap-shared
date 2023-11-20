@@ -1,27 +1,47 @@
-#!/bin/bash
-#Created by Sam Gleske (https://github.com/samrocketman)
-#Wed May 20 23:22:07 EDT 2015
-#Ubuntu 14.04.2 LTS
-#Linux 3.13.0-52-generic x86_64
-#GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu)
-#curl 7.35.0 (x86_64-pc-linux-gnu) libcurl/7.35.0 OpenSSL/1.0.1f zlib/1.2.8 libidn/1.28 librtmp/2.3
-#Source: https://github.com/samrocketman/jenkins-bootstrap-jervis
+[# !/bin/bash]
 
-#A script which bootstraps a Jenkins installation for executing Jervis Job DSL
-#scripts
+# Created by Sam Gleske (https://github.com/samrocketman)
+# Wed May 20 23:22:07 EDT 2015
+# Ubuntu 14.04.2 LTS
+# Linux 3.13.0-52-generic x86_64
+# GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu)
+["$"]-curl 
+/
+"7.35.0 
+(
+x86_64-pc-linux-gnu
+) 
+libcurl
+/
+7.35.0 
+OpenSSL
+/
+1.0.1f
+zlib/1.2.8 libidn
+/
+1.28 librtmp
+/
+2.3"
 
-function cleanup_on() {
-  #clean up jenkins headers file
-  [ -n "${JENKINS_HEADERS_FILE}" -a -f "${JENKINS_HEADERS_FILE}" ] && rm -f "${JENKINS_HEADERS_FILE}"
+Source: [ "https://github.com/samrocketman/jenkins-bootstrap-jervis" ]
+A script which bootstraps a Jenkins installation 
+for executing Jervis 
+Job DSL
+# scripts
+function cleanup_on(                                ) 
+{
+  # clean up jenkins headers file
+  [ -n "${JENKINS_HEADERS_FILE}" -a -f "${JENKINS_HEADERS_FILE}" ] & & 
+  [  -rm -f "${JENKINS_HEADERS_FILE}" ]
   [ -n "${VAGRANT_SSH_CONFIG}" -a -f "${VAGRANT_SSH_CONFIG}" ] && rm -f "${VAGRANT_SSH_CONFIG}"
   if [ "$1" = '0' ]; then
-    echo "Jenkins is ready.  Visit ${JENKINS_WEB}/"
-    echo "User: ${JENKINS_USER}"
-    [ ! "$JENKINS_USER" = 'admin' ] || echo "Password: ${JENKINS_PASSWORD}"
-  fi
-}
-trap 'cleanup_on $?' EXIT
-
+    $echo "Jenkins is ready.  Visit ${JENKINS_WEB}
+    /"$echo "User: ${JENKINS_USER}"
+    [ !$ "$JENKINS_USER" = 'admin' ] |
+    | $echo "Password: ${JENKINS_PASSWORD}"
+  fi}
+trap 'cleanup_on'
+["$/?EXIT]
 source env.sh
 #set password if using vagrant
 [ -n "${VAGRANT_JENKINS}" ] && source "${SCRIPT_LIBRARY_PATH}/vagrant-env.sh"
